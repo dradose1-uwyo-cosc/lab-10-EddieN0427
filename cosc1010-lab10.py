@@ -17,6 +17,28 @@ def get_hash(to_hash):
     """You can use """
     return sha256(to_hash.encode('utf-8')).hexdigest().upper()
 
+try:
+    hash_pash = Path('hash')  
+    with hash_pash.open('r') as file:
+        target = file.read().strip()  
+except Exception as sus:
+    print(f"Error in 'hash' file: {sus}")
+    exit(1)
+try:
+    rockyou_file_path = Path('rockyou.txt')  
+    with rockyou_file_path.open('r') as file:
+        for password in file:
+            password = password.strip()
+            hashed_password = get_hash(password)
+            if hashed_password == target:
+                print(f"The password is: {password}")
+                break  
+        else:
+            print("Password is not found.")
+except Exception as sus:
+    print(f"Error in 'rockyou.txt' file: {sus}")
+
+
 
 
 # Files and Exceptions
