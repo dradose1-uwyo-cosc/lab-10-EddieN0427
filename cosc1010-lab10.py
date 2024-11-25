@@ -1,8 +1,8 @@
-# Your Name Here
+# Eddie Neitenbach
 # UWYO COSC 1010
-# Submission Date
-# Lab XX
-# Lab Section: 
+# Submission Date: 11/24/2024
+# Lab 10
+# Lab Section: 11
 # Sources, people worked with, help given to: 
 # your
 # comments
@@ -25,8 +25,8 @@ except Exception as sus:
     print(f"Error in 'hash' file: {sus}")
     exit(1)
 try:
-    rockyou_file_path = Path('rockyou.txt')  
-    with rockyou_file_path.open('r') as file:
+    rock_file = Path('rockyou.txt')  
+    with rock_file.open('r') as file:
         for password in file:
             password = password.strip()
             hashed_password = get_hash(password)
